@@ -1,0 +1,3 @@
+<% 
+    Response.Write("¾È³ç")
+%>

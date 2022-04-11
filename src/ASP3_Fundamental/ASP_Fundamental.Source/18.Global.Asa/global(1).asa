@@ -1,0 +1,77 @@
+'------------------------------------------------------
+'ActiveMainPage Global.asa
+'http://redplus.net/webmaster/에서 사용
+'------------------------------------------------------
+
+
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Application_OnStart
+
+	Set FileObject = Server.CreateObject("Scripting.FileSystemObject")
+	VisitCountFileName = Server.MapPath(".")+"\visit.txt"
+	Set Out = FileObject.OpenTextFile(VisitCountFileName,1,FALSE,FALSE)
+	Application("Visit")=Out.ReadLine
+	Application("TodayVisit")=Out.ReadLine
+	Application("Today")=Out.ReadLine
+	Application("CurrentVisitor")=0
+	Application("VisitCountFileName")=VisitCountFileName
+
+END SUB
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Application_OnEnd
+
+	Set FileObject = Server.CreateObject("Scripting.FileSystemObject")
+	Set Out = FileObject.CreateTextFile(Application("VisitCountFileName"),TRUE,FALSE)
+	Application.Lock
+	Out.WriteLine(Application("Visit"))
+	Out.WriteLine(Application("TodayVisit"))
+	Out.WriteLine(Application("Today"))
+	Application.UnLock
+
+END SUB
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Session_OnStart
+
+	Application.lock
+	Application("Visit")= Application("Visit")+1
+	Application("CurrentVisitor")=Application("CurrentVisitor")+1
+	if Left(Application("Today"),10) = Left(date(),10) then
+		Application("TodayVisit")=Application("TodayVisit")+1
+		Application("Today") = date()
+	else
+		Application("TodayVisit")=0
+		Application("Today") = date()
+	end if
+	Application.unlock
+
+	Session.Timeout = 20
+   
+	If Application("Visit") MOD 5 = 0 Then
+	  Set FileObject = Server.CreateObject("Scripting.FileSystemObject")
+	  Set Out = FileObject.CreateTextFile(Application("VisitCountFileName"),TRUE,FALSE)
+	Application.lock
+	Out.WriteLine(Application("Visit"))
+	Out.WriteLine(Application("TodayVisit"))
+	Out.WriteLine(Application("Today"))
+	Application.unlock
+    End If
+
+END SUB
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Session_OnEnd
+
+	Application.Lock
+   	Application("CurrentVisitor")=Application("CurrentVisitor")-1
+   	Application.UnLock
+
+END SUB
+</SCRIPT>

@@ -1,0 +1,13 @@
+<!-- METADATA TYPE="typelib" 
+FILE="C:\program files\common files\system\ado\msado15.dll"-->
+<script language="vbscript" runat="server">
+Sub Application_OnStart()   
+    Application("ConnectionString") = "Provider=SQLOLEDB.1;Password=1234;Persist Security Info=True;User ID=Upload;Initial Catalog=Upload;Data Source=172.16.25.99"   
+End Sub
+Sub Session_OnStart()
+End Sub
+Sub Session_OnEnd()
+End Sub
+Sub Application_OnEnd()
+End Sub
+</script>

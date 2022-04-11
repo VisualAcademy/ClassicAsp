@@ -1,0 +1,15 @@
+* Windows Server
+	C:\ASP\ -> http://localhost/ASP/
+    C:\ASP\Vote\ -> http://localhost/ASP/Vote/Default.asp
+* SQL Server
+	1. (local)\SQLExpress
+	2. DB
+		ASPSample
+	3. Login	
+		ASPSample/1234
+	4. ASPSample.UDL
+	5. 테이블 : Vote 테이블, Vote_Item 테이블
+* ASP/ASP.NET
+    1. Default.asp : 설문조사 메인
+    2. Do_Vote.asp : 설문진행
+    3. Vote_Result.asp : 설문결과

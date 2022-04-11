@@ -1,0 +1,25 @@
+Redirect /Sample/AdRotator/AdRedirect.asp
+Width 500
+Height 180
+border 0
+*
+
+/Sample/AdRotator/banner1.gif
+http://www.dotnetkorea.com/
+´å³ÝÄÚ¸®¾Æ
+50
+
+/Sample/AdRotator/banner2.gif
+http://www.naver.com/
+³×ÀÌ¹ö
+25
+
+/Sample/AdRotator/banner3.gif
+http://www.empas.com/
+¿¥ÆÄ½º
+20
+
+/Sample/AdRotator/banner4.gif
+http://www.empas.com/
+¿¥ÆÄ½º
+5

@@ -1,0 +1,10 @@
+※ Upload 자료실 설치 설명서
+
+1. Upload.zip 파일을 다운로드 받아 로컬호스트(/)에 압축을 푼다.
+2. Upload 폴더에 웹공유(가상디렉터리) 설정을 추가한다.
+3. /Upload/files/ 폴더에 대해서 쓰기권한(everyone에 모든권한)을 부여한다.
+4. SQL Server 데이터베이스에 Upload.sql 파일을 참고하여 Upload 테이블을 생성한다.
+5. Global.asa 파일을 열어 Application("ConnectionString") 전역변수를 
+    본인에 맞게 설정한다.
+
+기타. 알아서 잘 설치해보세요...

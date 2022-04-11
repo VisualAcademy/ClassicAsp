@@ -1,0 +1,19 @@
+- Windows Server 레벨
+1. c:\Upload\ -> http://localhost/Upload/ (웹공유)
+2. c:\Upload\files\ 생성 후 
+        NTFS(IUSR_컴퓨터명) 쓰기 권한 부여
+3. 업로드 컴포넌트 설치 : SiteGalaxyUpload
+- SQL Server 레벨
+1. (local), (local)\SQLEXPRESS, 172.16.25.99
+2. DB : Upload
+3. Login : Upload/1234
+4. Upload.UDL 테스트
+5. Table : Upload
+- Visual Studio : ASP/ASP.NET 레벨
+1. /Upload/Global.asa 설정
+2. /Upload/Default.asp : Upload 테이블의 데이터 출력 테스트
+3. /Upload/UploadWrite.asp : 업로드 폼
+4. /Upload/UploadWriteProcess.asp : 업로드 처리
+5. 자료실 관련 입출력상세수정삭제검색 페이지 구현
+- 원격 서버에 자료실 소스 업로드 후 사용
+!. http://www.dotnetkorea.com/Upload/Default.asp

@@ -1,0 +1,24 @@
+<!-- METADATA TYPE="typelib" 
+FILE="C:\program files\common files\system\ado\msado15.dll"-->
+<script language="vbscript" runat="server">
+Sub Application_OnStart()
+    '[1] 제일 처음 사용자가 방문시
+    Application("Now") = 0        
+End Sub
+
+Sub Session_OnStart()
+    '[2] 한 명의 사용자가 방문할 때마다
+    Application("Now") = Application("Now") + 1
+    Session("NowTime") = Now()
+End Sub
+
+Sub Session_OnEnd()
+    '[3] 한 명의 사용자가 나가고나서 20분 후에 발생
+    Application("Now") = Application("Now") - 1
+End Sub
+
+Sub Application_OnEnd()
+    '[4] 맨 마지막 사용자의 Session_OnEnd 이벤트 발생 후 바로 발생
+    Application("Now") = Nothing
+End Sub
+</script>

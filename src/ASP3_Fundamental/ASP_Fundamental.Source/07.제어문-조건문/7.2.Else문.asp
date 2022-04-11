@@ -1,0 +1,10 @@
+<%
+Dim intNumber
+intNumber = 10
+
+If intNumber Mod 2 = 1 Then
+    Response.Write("È¦¼öÀÔ´Ï´Ù.")
+Else
+	Response.Write("Â¦¼öÀÔ´Ï´Ù.")
+End If
+%>

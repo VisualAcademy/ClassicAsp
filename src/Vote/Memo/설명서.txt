@@ -1,0 +1,11 @@
+* SQL Server 2005
+
+1. 설치
+2. DB
+    MemoDB
+3. Login
+    MemoUid/MemoPwd
+4. UDL 테스트 -> 연결문자열
+    *.UDL
+5. Table 생성
+    Memos

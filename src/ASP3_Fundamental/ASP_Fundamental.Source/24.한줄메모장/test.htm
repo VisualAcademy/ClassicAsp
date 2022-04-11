@@ -1,0 +1,54 @@
+<HTML>
+	<HEAD>
+		<TITLE>MY메모장 입력 페이지</TITLE>
+		<SCRIPT language="javascript">
+
+function write_form_check()
+{
+   //이름값 입력 체크
+   if(window.document.write_form.name.value == "")							//만약에 해당객체에 값이 없으면...
+   {	
+      window.alert("이름을 넣어주세요.");				//메시지 박스 출력.
+	  window.document.write_form.name.focus();		//해당 입력양식에 포커스.
+	  return false;												//현재 함수를 호출한 곳으로 false값 반환.
+   }
+
+   //이름값 입력 체크
+   if(window.document.write_form.name.value.length <2 || window.document.write_form.name.value.length > 5)
+   {	
+      window.alert("이름을 2자리이상 5자리 이하로 넣어주세요.");				//메시지 박스 출력.
+	  window.document.write_form.name.focus();		//해당 입력양식에 포커스.
+	  window.document.write_form.name.select();		//해당 입력양식을 선택
+	  return false;												//현재 함수를 호출한 곳으로 false값 반환.
+   }
+
+	
+	window.document.write_form.submit();				//체크사항 만족시 전송.
+
+}
+
+		</SCRIPT>
+	</HEAD>
+	<BODY bgcolor="#FFFFFF">
+		<DIV align="center">
+			<TABLE border="1">
+				<FORM name="write_form" method="post" action="./memo_write_process.asp">
+					<TR>
+						<TD>
+							이&nbsp;&nbsp;&nbsp;름
+						</TD>
+						<TD>
+							<INPUT type="text" name="name" size="30" value="">
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="2" align="center">
+							<INPUT type="button" value="글쓰기" onclick="write_form_check();">&nbsp;&nbsp; 
+							<INPUT type="reset" value="취&nbsp;&nbsp;소">
+						</TD>
+					</TR>
+				</FORM>
+			</TABLE>
+		</DIV>
+	</BODY>
+</HTML>

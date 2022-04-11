@@ -1,0 +1,21 @@
+<script language="vbscript" runat="server">
+Sub Application_OnStart
+	'애플리케이션이 시작할 때(처음 사용자 접속시)
+
+End Sub
+
+Sub Session_OnStart
+	'세션이 시작할 때(각 사용자 접속시)
+
+End Sub
+
+Sub Session_OnEnd
+	'세션이 종료될 때(각 사용자 나갈 때)
+
+End Sub
+
+Sub Application_OnEnd
+	'애플리케이션이 종료될 때(마지막 사용자가 나갈때)
+
+End Sub
+</script>

@@ -1,0 +1,4 @@
+<%
+Response.Write("¾È³çÇÏ¼¼¿ä.")
+Response.Write("¹Ý°©½À´Ï´Ù.")
+%>

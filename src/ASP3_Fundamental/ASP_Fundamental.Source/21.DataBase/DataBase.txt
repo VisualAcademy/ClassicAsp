@@ -1,0 +1,20 @@
+<%
+ 1. NT 설정
+	1) 설치
+	2) 사용자관리
+	3) 폴더관리(NTFS권한)
+	4) WWW
+	5) FTP
+	6) DNS
+	7) E-mail
+	8) Telnet(Terminal Service)
+
+2. SQL Server 설정
+	1) 설치
+	2) 데이터베이스 생성(이름, 크기, 로그파일) : my_database
+	3) 테이블 생성(이름) : my_memo
+	4) 사용자 관리(UID=my_database_id, PWD=my_database_pwd)
+	5) ODBC 설정(DSN=my_database_dsn)
+	6) SQL문
+	7) ASP
+%>

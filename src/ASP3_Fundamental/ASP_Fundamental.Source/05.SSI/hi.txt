@@ -1,0 +1,5 @@
+<%
+Sub Hi()
+	Response.Write "이 문서는 hi.txt에 있는내용<br>"
+End Sub
+%>

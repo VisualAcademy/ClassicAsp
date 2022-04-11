@@ -1,0 +1,92 @@
+'--------------------------------------
+'ActiveMainPage Global.asa
+'--------------------------------------
+
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Application_OnStart
+
+	'-------------------------------------------------------------------------------------
+	'ActiveMainPage Count Setup 3/6
+	'-------------------------------------------------------------------------------------	
+   	Set objFso = Server.CreateObject("Scripting.FileSystemObject")
+	VisitCountFileName = Server.MapPath(".")+"\visit.txt"
+	Set objFile = objFso.OpenTextFile(VisitCountFileName,1,FALSE,FALSE)
+	Application("TotalVisit")=objFile.ReadLine
+	Application("TodayVisit")=objFile.ReadLine
+	Application("Today")=objFile.ReadLine
+	Application("CurrentVisitor")=0
+	Application("VisitCountFileName")=VisitCountFileName
+	'-------------------------------------------------------------------------------------
+
+END SUB
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Application_OnEnd
+
+	'-------------------------------------------------------------------------------------
+	'ActiveMainPage Count Setup 4/6
+	'-------------------------------------------------------------------------------------	
+	Set objFso = Server.CreateObject("Scripting.FileSystemObject")
+	Set objFile = objFso.CreateTextFile(Application("VisitCountFileName"),TRUE,FALSE)
+	Application.Lock
+	objFile.WriteLine(Application("TotalVisit"))
+	objFile.WriteLine(Application("TodayVisit"))
+	objFile.WriteLine(Application("Today"))
+	Application.UnLock
+	'-------------------------------------------------------------------------------------    
+
+END SUB
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Session_OnStart
+
+	'-------------------------------------------------------------------------------------
+	'ActiveMainPage Count Setup 5/6
+	'-------------------------------------------------------------------------------------	
+	Application.lock
+	Application("TotalVisit")= Application("TotalVisit")+1
+	Application("CurrentVisitor")=Application("CurrentVisitor")+1
+	if Left(Application("Today"),10) = Left(date(),10) then
+		Application("TodayVisit")=Application("TodayVisit")+1
+		Application("Today") = date()
+	else
+		Application("TodayVisit")=0
+		Application("Today") = date()
+	end if
+	Application.unlock
+
+	Session.Timeout = 20
+   
+	If Application("TotalVisit") MOD 5 = 0 Then
+	  Set objFso = Server.CreateObject("Scripting.FileSystemObject")
+	  Set objFile = objFso.CreateTextFile(Application("VisitCountFileName"),TRUE,FALSE)
+
+	Application.lock
+	objFile.WriteLine(Application("TotalVisit"))
+	objFile.WriteLine(Application("TodayVisit"))
+	objFile.WriteLine(Application("Today"))
+	Application.unlock
+    End If
+	'-------------------------------------------------------------------------------------
+
+END SUB
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+SUB Session_OnEnd
+
+	'-------------------------------------------------------------------------------------
+	'ActiveMainPage Count Setup 6/6
+	'-------------------------------------------------------------------------------------	
+	Application.Lock
+   	Application("CurrentVisitor")=Application("CurrentVisitor")-1
+   	Application.UnLock
+	'-------------------------------------------------------------------------------------
+
+END SUB
+</SCRIPT>

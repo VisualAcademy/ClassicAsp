@@ -1,0 +1,27 @@
+* Windows Server
+	C:\ASP\ -> http://localhost/ASP/
+    C:\ASP\Basic\ -> http://localhost/ASP/Basic/Default.asp
+    http://www.abc.com/ASP/Basic/List.asp -> 게시판 리스트
+* SQL Server
+	1. (local)
+	2. DB
+		Basic
+	3. Login	
+		Basic/1234
+	4. Basic.UDL
+	5. 테이블 : Basic
+* ASP/ASP.NET
+    0. Global.asa : 데이터베이스 연결 문자열 기록 
+        -> Application("ConnectionString")
+        -> Application("ConnectionString") 
+    1. Write.asp : 입력 폼
+        WriteProcess.asp : 입력 처리
+    2. List.asp?Page=? : 출력 리스트
+    3. View.asp?Num=? : 단일 레코드에 대한 상세보기
+    4. Modify.asp?Num=? : 수정하기 폼
+        ModifyProcess.asp : 수정처리
+    5. Delete.asp?Num=? : 삭제 폼
+        DeleteProcess.asp : 삭제 처리 
+    6. Search.asp?SearchField=?&SearchQuery=? : 검색 결과 페이지
+
+   

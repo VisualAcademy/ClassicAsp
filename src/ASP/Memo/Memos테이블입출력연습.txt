@@ -1,0 +1,17 @@
+* Windows Server
+	C:\ASP\ -> http://localhost/ASP/
+* SQL Server
+	1. (local)\SQLExpress
+	2. DB
+		ASP
+	3. Login	
+		ASP/1234
+	4. ASP.UDL
+	5. 테이블 : Memos 테이블
+* ASP/ASP.NET
+	1. 입력 : Insert
+	2. 출력 : Select
+	3. 상세 : Select
+	4. 수정 : Update
+	5. 삭제 : Delete
+	6. 검색 : Select
